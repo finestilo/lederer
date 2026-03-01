@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On Time – Lederer</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* ================= RESET ================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* ================= WIDTH SYSTEM ================= */
+
+.outer {
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+.gradient-wrapper {
+  padding: 0 42px;
+}
+
+/* ================= TOP STRIP ================= */
+
+.top-strip {
+  background-color: #0C1E2B;
+}
+
+.top-strip-inner {
+  padding: 26px 0;
+  text-align: center;
+}
+
+.top-strip img {
+  width: 200px;
+  height: auto;
+}
+
+/* ================= WHITE BANDS ================= */
+
+.white-band {
+  height: 75px;
+  background: #ffffff;
+}
+
+/* ================= GRADIENT PANEL ================= */
+
+.section-gradient {
+  position: relative;
+  background: linear-gradient(120deg,#1E2D38 0%,#344B5A 40%,#6F8595 100%);
+  color: #F2F2F2;
+  padding: 45px 0 95px 0;
+  overflow: hidden;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.section-gradient::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 30vw;
+  height: 140%;
+  border-left: 1px solid rgba(203,191,177,0.35);
+  border-radius: 50%;
+  transform: rotate(10deg);
+}
+
+.section-gradient::after {
+  content: "";
+  position: absolute;
+  bottom: -20%;
+  left: -15%;
+  width: 110%;
+  height: 28vw;
+  border-top: 1px solid rgba(203,191,177,0.3);
+  border-radius: 50%;
+  transform: rotate(-6deg);
+}
+
+/* ================= CONTENT ================= */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Masthead */
+
+.masthead {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.masthead h1 {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 38px;
+  color: #CBBFB1;
+  margin-bottom: 12px;
+}
+
+.meta {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #E0E0E0;
+}
+
+/* Context Block */
+
+.context-block {
+  margin: 55px 0 70px 0;
+  max-width: 750px;
+}
+
+.context-label {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #CBBFB1;
+  margin-bottom: 18px;
+}
+
+.context-content {
+  display: flex;
+}
+
+.context-line {
+  width: 1px;
+  background-color: #CBBFB1;
+  margin-right: 18px;
+  min-height: 60px;
+}
+
+.context-text {
+  font-size: 19px;
+  color: #ECECEC;
+}
+
+/* Titles */
+
+.main-title {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 30px;
+  color: #CBBFB1;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.sub-heading {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 19px;
+  color: #CBBFB1;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+/* Image Fade */
+
+.hero-image {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.hero-image img {
+  width: 100%;
+  display: block;
+}
+
+.hero-image::before,
+.hero-image::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  pointer-events: none;
+}
+
+.hero-image::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(30,45,56,1), rgba(30,45,56,0));
+}
+
+.hero-image::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(111,133,149,1), rgba(111,133,149,0));
+}
+
+/* Image Credit */
+
+.image-credit {
+  font-size: 13px;
+  font-style: italic;
+  text-align: right;
+  color: #D8D8D8;
+  margin-bottom: 55px;
+}
+
+/* ================= EDITORIAL BODY REFINEMENTS ================= */
+
+.editorial-body {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 17.5px;
+  color: #F3F3F3;
+}
+
+.editorial-body p {
+  margin-bottom: 28px;
+}
+
+/* Drop Cap */
+
+.editorial-body p:first-of-type::first-letter {
+  font-size: 52px;
+  float: left;
+  line-height: 0.9;
+  padding-right: 10px;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #CBBFB1;
+}
+
+/* Optional */
+
+.optional-block {
+  margin-top: 70px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.optional-block h3 {
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 20px;
+  color: #CBBFB1;
+  margin-bottom: 14px;
+}
+
+.optional-block p {
+  font-size: 17.5px;
+  margin-bottom: 18px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 9px 22px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: transparent;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* Signoff */
+
+.signoff {
+  margin-top: 85px;
+  text-align: right;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 16px;
+  color: #CBBFB1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .gradient-wrapper {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .gradient-wrapper {
+    padding: 0;
+  }
+
+  .section-gradient {
+    max-width: 100%;
+  }
+
+  .container {
+    padding: 0 22px;
+  }
+
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 80px 0 50px 0;
+  text-align: center;
+  background-color: #0C1E2B;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.02) 1px,
+      transparent 1px,
+      transparent 6px
+    );
+}
+
+.footer-nav {
+  margin-bottom: 30px;
+}
+
+.footer-nav a {
+  color: #CBBFB1;
+  text-decoration: none;
+  margin: 0 18px;
+  font-weight: bold;
+}
+
+.social-icons {
+  margin: 25px 0;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
+.social-icons i {
+  font-size: 20px;
+  color: #000000;
+}
+
+.footer-location {
+  margin-top: 25px;
+  font-size: 14px;
+  color: #E6E6E6;
+}
+
+.footer-unsubscribe {
+  margin-top: 25px;
+}
+
+.footer-unsubscribe a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  margin-top: 60px;
+}
+
+.footer-bottom img {
+  width: 160px;
+  margin-bottom: 15px;
+}
+
+.footer-legal {
+  color: #CBBFB1;
+  font-size: 13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top-strip">
+  <div class="outer top-strip-inner">
+    <img src="https://lederertimepieces.com/wp-content/uploads/2025/07/Logo_2025_W_bl.svg">
+  </div>
+</div>
+
+<div class="white-band"></div>
+
+<div class="outer gradient-wrapper">
+  <div class="section-gradient">
+    <div class="container">
+
+      <div class="masthead">
+        <h1>On Time</h1>
+        <div class="meta">ON PRECISION · 27 February 2026 · 4 min read</div>
+      </div>
+
+      <div class="context-block">
+        <div class="context-label">This Week</div>
+        <div class="context-content">
+          <div class="context-line"></div>
+          <div class="context-text">
+            We explore how a fraction beyond the decimal reveals a lifelong refusal to accept compromise in watchmaking.
+          </div>
+        </div>
+      </div>
+
+      <div class="main-title">
+        When Compromise Ends
+      </div>
+
+      <div class="sub-heading">
+        Behind uncompromised timekeeping.
+      </div>
+
+      <div class="hero-image">
+        <img src="https://lederertimepieces.com/wp-content/uploads/2025/10/bl_manufacture.jpg">
+      </div>
+
+      <div class="image-credit">
+        Image © Lederer Timepieces
+      </div>
+
+      <div class="editorial-body">
+
+        <p>The average duration of a synodic month is 29.530588 days, or 29.5 days if you settle for an approximation. The approximate 29.5 days seems convenient, and the remaining 0.030588 days may not look like a big deal, but if you look at it from a wider lens, that gives you a 1-day error in ~2.7 years, which, from a timekeeping perspective, is a huge deal.</p>
+
+        <p>Approximating the synodic month to 29.53 days reduces the error to 1 day in about 142 years, close but still not aligned with the sky.</p>
+
+        <p>Now, some may settle for approximations, others may push for ‘close’, but only a few push it to its limit — far enough that a day of error lies ‘EIGHT CENTURIES’ away.</p>
+
+        <p>As far as the math goes (one last time), to achieve this level of precision, that is, 1-day error in 800 years, you only get 8.73 seconds a month, about the time it takes to take a deep breath.</p>
+
+        <p>These simple calculations tell us how errors don’t disappear; instead, they accumulate, and how precision is always a choice, not an accident.</p>
+
+        <p>But what kind of person actually works this way? A master of escapements? Well, yes, now he is, but back in 1986, Bernhard Lederer was a student who was commissioned to build a table clock with at least one additional complication beyond the minute complication as part of his diploma.</p>
+
+        <p>And what did he design? A masterpiece with a gravity escapement, a 3200-year perpetual calendar, and a moonphase that only requires correction once every 800 years.</p>
+
+        <p>A masterpiece designed so perfectly that its first correction lies centuries beyond the master’s own lifetime and many future generations to come. And while this level of precision is a great feat of technical achievement, the precision speaks more about the intent behind it, an intent that is intolerant of shortcuts and uncomfortable with asymmetry, an intent of overturning a dogma, and working on inventions rather than markets.</p>
+
+        <p>Years later, the subject changed; it wasn’t about long-term correction anymore, but instead it was about moment-to-moment disturbance. In 1986, it was a table clock. How would this mindset look inside a wristwatch?</p>
+
+        <p>If shortcuts were unacceptable in the calendar measured in centuries, could they be tolerated in a mechanism measured in seconds?</p>
+
+        <p>Bernhard Lederer's answer: the Natural Escapement. Masters like Breguet theorized natural escapement with twin wheels that could deliver energy directly and systematically, without compromising the precision, but the idea remained unfinished. Centuries later, George Daniels visited the same principle and created the double-wheel escapement and demonstrated its beauty in Spacetraveller pocket watches, but didn’t pursue adapting it for regular wristwatches.</p>
+
+        <p>The idea, though theoretically worked, remained confined to the scale and tolerance as the wrist introduced instability. But once chosen, precision cannot be applied selectively. It either governs everything or means nothing. For Bernhard Lederer, this wasn’t a new curiosity but a continuation of lifelong discipline; this was a challenge for him to narrow the tolerance.</p>
+
+        <p>Refusal to compromise meant facing the variables head-on. Countering instability accompanied by each shock, each motion, and each variable introducing disturbance, a disturbance far smaller than the lunar cycle but equally important to counter.</p>
+
+        <p>The subject didn’t change; it was the same question in another form. Decades ago, it was measured in decimals; now, in oscillation. This mindset took an architectural form, with twin paths, direct impulse, and balance applied as a principle rather than ornament.</p>
+
+        <p>The structure now lives within what we call the Central Impulse Chronometer.</p>
+
+      </div>
+
+      <div class="optional-block">
+        <h3>From the Archive</h3>
+        <p>An earlier interview on Lederer's practice and escapement philosophy, tracing his horological evolution.</p>
+        <a href="https://monochrome-watches.com/interview-independent-watchmaker-bernhard-lederer-on-central-impulse-escapement-and-a-crazy-paramagnetic-movement/" class="button">Read More</a>
+      </div>
+
+      <div class="signoff">
+        — The Lederer Team
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="white-band"></div>
+
+<div class="footer">
+  <div class="outer">
+
+    <div class="footer-nav">
+      <a href="https://lederertimepieces.com/timepieces/">TIMEPIECES</a>
+      <a href="https://lederertimepieces.com/retailers/">RETAILERS</a>
+      <a href="https://lederertimepieces.com/contact/">CONTACT</a>
+    </div>
+
+    <div class="social-icons">
+      <a href="https://instagram.com/lederertimepieces"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com/company/lederertimepieces"><i class="fab fa-linkedin"></i></a>
+      <a href="https://tiktok.com/@lederertimepieces"><i class="fab fa-tiktok"></i></a>
+      <a href="https://pinterest.com/lederer_timepieces"><i class="fab fa-pinterest"></i></a>
+      <a href="https://youtube.com/@lederer-timepieces"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <div class="footer-location">
+      Lederer Timepieces – Saint Blaise, Switzerland
+    </div>
+
+    <div class="footer-unsubscribe">
+      <a href="#">Unsubscribe</a>
+    </div>
+
+    <div class="footer-bottom">
+      <img src="https://lederertimepieces.com/wp-content/uploads/2025/07/Logo_2025_W_bl.svg">
+      <div class="footer-legal">
+        2025 © LEDERER – LEGAL NOTICES
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
